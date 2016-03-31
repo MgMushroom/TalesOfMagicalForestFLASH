@@ -254,7 +254,7 @@ package com.ms.tomf
 			}
 			
 			
-			if(wDown == true && downBumping==true)
+			if(wDown == true && downBumping==true && ySpeed == 0)
 			{
 				ySpeed += jump;
 				gravityRealistic=true;
