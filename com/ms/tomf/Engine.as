@@ -26,6 +26,7 @@ package com.ms.tomf
 		private var ground:Ground = new Ground();
 		private var back:Back = new Back();
 		private var textF:TextField = new TextField;
+		private var ladders:Ladders = new Ladders;
 	//*******************************************//	
 		private var test:Number;
 		private var test1:Control = new Control;
@@ -54,21 +55,34 @@ package com.ms.tomf
 		private var friction:Number = 0.95;
 		private var gravityRealistic:Boolean;
 		private var jumpCounter:Boolean;
+		private var onLaddersSpeed:Number = 3;
 	//***********************************************************************************//
 		private var downBumping:Boolean = false;
-		private var downBumpPoint:Point = new Point(0, 0);
+		private var downBumpPoint:Point = new Point(0, -50);
+		private var upBumping:Boolean = false;
+		private var upBumpPoint:Point = new Point(0, -mushroom.height * 1.5);
+		private var onLadders:Boolean = false;
+		
 	//***********************************************************************************//	
 	//Main function
 		public function Engine()
 		{
 			backG();
 			map();
+			makeLadders();
 			hero();
 			text();
 			sound();
 			stage.addEventListener(Event.ENTER_FRAME, checkKeys);
 			
 		}
+	//***********************************************************************************//
+		private function makeLadders():void
+		{
+			ladders.x = 234,45;
+			ladders.y = -128;
+			stage.addChild(ladders);
+		}	
 	
 		
 	//***********************************************************************************//
@@ -101,7 +115,7 @@ package com.ms.tomf
 		private function hero():void
 		{
 			mushroom.x = stage.stageWidth / 2;
-			mushroom.y = 700;
+			mushroom.y = 500;
 			stage.addChild(mushroom);
 		}
 	//***********************************************************************************//
@@ -109,7 +123,7 @@ package com.ms.tomf
 		private function map():void
 		{
 			ground.x = -71,2;
-			ground.y = -732;
+			ground.y = -752;
 			stage.addChild(ground);
 		}
 	//***********************************************************************************//
@@ -144,8 +158,20 @@ package com.ms.tomf
 			downBumping = false;
 		}
 		
-		
-		
+		if(ladders.hitTestPoint(mushroom.x + downBumpPoint.x, mushroom.y + downBumpPoint.y, true) )
+		{
+			onLadders= true;
+		} else {
+			onLadders = false;
+		}
+		if(ground.hitTestPoint(mushroom.x + upBumpPoint.x, mushroom.y + upBumpPoint.y, true))
+		{
+			upBumping = true;
+		}
+		else
+		{
+			upBumping = false;
+		}
 	
 	
 	}
@@ -209,14 +235,34 @@ package com.ms.tomf
 			if(downBumping==true)
 			{
 				gravity = 0;
+				ySpeed += 1;
+			}
+			if(upBumping==true)
+			{
+				ySpeed = 0;
+				gravity += 2;
 			}
 			
+			//if(ground.y < -752)
+			//{
+				
+			//}
+				
 			ground.y -= gravity;
 			back.y -= gravity;
-			if(ground.y > -732)
+			ladders.y -= gravity;
+			
+			if(downBumping == false)
 			{
+				//ground.y > -732
 				gravity++;
 			}
+		
+			if(onLadders==true)
+			{
+				gravity=onLaddersSpeed * 3;
+			}
+		
 		
 		}	
 	//***********************************************************************************//	
@@ -228,7 +274,7 @@ package com.ms.tomf
 			test2 = test1.testNum();
 			currentT = String(test2);
 			array = MouseDir();
-			textF.text ="X: " + array[0] + "\n" + "Y: " + array[1] + "\n" + currentT;
+			textF.text ="X: " + array[0] + "\n" + "Y: " + array[1] + "\n" + currentT + "\n" + "collisionUP: " + upBumping + "\n" + "collisionDown: " + downBumping;
 		}	
 	//***********************************************************************************//	
 	//	
@@ -254,17 +300,29 @@ package com.ms.tomf
 			}
 			
 			
-			if(wDown == true && downBumping==true && ySpeed == 0)
+			if(wDown == true && downBumping==true && ySpeed <= 1 || wDown == true && onLadders==true )
 			{
+			
+				if(downBumping == true)
+				{
 				ySpeed += jump;
 				gravityRealistic=true;
+				}
+				
+				if(onLadders == true)
+				{
+					ySpeed += onLaddersSpeed;
+				}
+			
 			}
 		
 			xSpeed *= friction;
 			ySpeed *= friction;
+			
 			ground.x += xSpeed;
 			ground.y += ySpeed;
-			
+			ladders.x += xSpeed;
+			ladders.y += ySpeed;
 			back.x += xSpeed;
 			back.y += ySpeed;
 		
