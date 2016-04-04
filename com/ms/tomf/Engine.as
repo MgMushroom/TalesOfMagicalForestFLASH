@@ -41,6 +41,8 @@ package com.ms.tomf
 		private var array:Array = new Array(0,0);
 		private var spaceDown:Boolean;
 		private var wDown:Boolean;
+		private var aDown:Boolean;
+		private var dDown:Boolean;
 	
 		private var soundC:SoundChannel = new SoundChannel;
 	
@@ -55,7 +57,7 @@ package com.ms.tomf
 		private var friction:Number = 0.95;
 		private var gravityRealistic:Boolean;
 		private var jumpCounter:Boolean;
-		private var onLaddersSpeed:Number = 3;
+		private var onLaddersSpeed:Number = 4;
 	//***********************************************************************************//
 		private var downBumping:Boolean = false;
 		private var downBumpPoint:Point = new Point(0, -50);
@@ -151,20 +153,20 @@ package com.ms.tomf
 	//***********************************************************************************//
 	private function collision():void
 	{
-		if(ground.hitTestPoint(mushroom.x + downBumpPoint.x, mushroom.y + downBumpPoint.y, true) )
+		if(ground.hitTestPoint(mushroom.x + downBumpPoint.x, mushroom.y + downBumpPoint.y, true) ) //Do mushroom hit Ground
 		{
 			downBumping = true;
 		} else {
 			downBumping = false;
 		}
 		
-		if(ladders.hitTestPoint(mushroom.x + downBumpPoint.x, mushroom.y + downBumpPoint.y, true) )
+		if(ladders.hitTestPoint(mushroom.x + downBumpPoint.x, mushroom.y + downBumpPoint.y, true) ) //Ladders hitTest
 		{
 			onLadders= true;
 		} else {
 			onLadders = false;
 		}
-		if(ground.hitTestPoint(mushroom.x + upBumpPoint.x, mushroom.y + upBumpPoint.y, true))
+		if(ground.hitTestPoint(mushroom.x + upBumpPoint.x, mushroom.y + upBumpPoint.y, true)) //Do mushroom upHitPoint hit ground
 		{
 			upBumping = true;
 		}
@@ -198,7 +200,14 @@ package com.ms.tomf
 			{
 				wDown = true;
 			}
-		
+			if(e.keyCode == 65)
+			{
+				aDown = true;
+			}
+			if(e.keyCode == 68)
+			{
+				dDown= true;
+			}
 		}
 	//***********************************************************************************//
 	// check keys up	
@@ -219,6 +228,14 @@ package com.ms.tomf
 				//}
 			
 			}
+			if(e.keyCode == 65)
+			{
+				aDown = false;
+			}
+			if(e.keyCode == 68)
+			{
+				dDown = false;
+			}
 		
 		}
 	//***********************************************************************************//
@@ -235,7 +252,7 @@ package com.ms.tomf
 			if(downBumping==true)
 			{
 				gravity = 0;
-				ySpeed += 1;
+				ySpeed += 0.1;
 			}
 			if(upBumping==true)
 			{
@@ -298,7 +315,14 @@ package com.ms.tomf
 				}
 			
 			}
-			
+			if(aDown && spaceDown == false)
+			{
+				xSpeed += speedConstant;
+			}
+			if(dDown && spaceDown == false)
+			{
+				xSpeed -= speedConstant;
+			}
 			
 			if(wDown == true && downBumping==true && ySpeed <= 1 || wDown == true && onLadders==true )
 			{

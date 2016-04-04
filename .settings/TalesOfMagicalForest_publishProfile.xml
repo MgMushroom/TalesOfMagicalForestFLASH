@@ -56,7 +56,7 @@
     <WindowMode>0</WindowMode>
     <DisplayMenu>1</DisplayMenu>
     <DeviceFont>0</DeviceFont>
-    <TemplateFileName>C:\Users\seve\AppData\Local\Adobe\Animate CC 2015\en_US\Configuration\HTML\Default.html</TemplateFileName>
+    <TemplateFileName>C:\Users\SamuliL\AppData\Local\Adobe\Animate CC 2015\en_US\Configuration\HTML\Default.html</TemplateFileName>
     <showTagWarnMsg>1</showTagWarnMsg>
   </PublishHtmlProperties>
   <PublishFlashProperties enabled="true">
@@ -72,7 +72,7 @@
     <EventFormat>0</EventFormat>
     <EventCompress>7</EventCompress>
     <OverrideSounds>0</OverrideSounds>
-    <Version>30</Version>
+    <Version>31</Version>
     <ExternalPlayer>FlashPlayer20.0</ExternalPlayer>
     <ActionScriptVersion>3</ActionScriptVersion>
     <PackageExportFrame>1</PackageExportFrame>
@@ -129,7 +129,7 @@
     <Animated>0</Animated>
     <MatchMovieDim>1</MatchMovieDim>
     <Loop>1</Loop>
-    <LoopCount></LoopCount>
+    <LoopCount>0</LoopCount>
     <Smooth>1</Smooth>
     <MaxColors>255</MaxColors>
   </PublishGifProperties>
@@ -151,17 +151,17 @@
     <Property name="copy">true</Property>
     <Property name="default">true</Property>
     <Property name="embed">false</Property>
-    <Property name="filename">Untitled-1.svg</Property>
+    <Property name="filename">TalesOfMagicalForest.svg</Property>
     <Property name="imagesPath">images</Property>
     <Property name="includeHiddenLayers">true</Property>
     <Property name="version">0.1</Property>
   </PublishProperties>
   <PublishProperties id="BBC1F806-66F2-4339-9306-FA48C7549E59" name="Mac Projector" otf="true" enabled="true">
     <Property name="default">true</Property>
-    <Property name="filename">Untitled-1.app</Property>
+    <Property name="filename">TalesOfMagicalForest.app</Property>
   </PublishProperties>
   <PublishProperties id="BBC2F906-78F3-4239-9305-FA48C8549E59" name="Win Projector" otf="true" enabled="true">
     <Property name="default">true</Property>
-    <Property name="filename">Untitled-1.exe</Property>
+    <Property name="filename">TalesOfMagicalForest.exe</Property>
   </PublishProperties>
 </flash_profile>
