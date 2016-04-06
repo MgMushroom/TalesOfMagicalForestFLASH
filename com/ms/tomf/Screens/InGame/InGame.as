@@ -1,19 +1,40 @@
 package com.ms.tomf.Screens.InGame
 {
+	import com.ms.tomf.Objects.Map;
+	import com.ms.tomf.Objects.Player;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	
 	public class InGame extends MovieClip
 	{
 		private var minion:Sprite = new Sprite;
+		private var inGameContent:Object = new Object;
+		
 		
 		public function InGame()
 		{
-			minion.graphics.lineStyle(3,0x000000);
-			minion.graphics.beginFill(0x0000FF);
-			minion.graphics.drawRect(0,0,500,500);
-			minion.graphics.endFill();
-			addChild(minion);
+			
+			defineInGameContent();
+			addInGameContent();
+			
+		}
+		
+		private function defineInGameContent():void
+		{
+		
+			inGameContent.map = new Map;
+			inGameContent.player = new Player;
+			inGameContent.ui = new UserInt;
+		}
+		
+		private function addInGameContent():void
+		{
+			
+			this.addChild(inGameContent.map);
+			this.addChild(inGameContent.player);
+			this.addChild(inGameContent.ui);
+			
 		}
 	}
 }

@@ -5,24 +5,30 @@ package com.ms.tomf.Screens.Menus
 	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	
 	public class MainMenu extends MovieClip
 	{
 		private var minion:Sprite = new Sprite;
+
 		private var playButton:PlayButton = new PlayButton;
 		private var mainMenuBg:MainMenuBG = new MainMenuBG;
-		public static var screenKEY:String = "MAIN";
-		
+		public static var screenKEY:String = "NULL";
+
 		public function MainMenu()
 		{
-			/*minion.graphics.lineStyle(3,0x000000);
-			minion.graphics.beginFill(0xFF0000);
-			minion.graphics.drawRect(0,0,500,500);
-			minion.graphics.endFill();
-			addChild(minion);*/
+			
+			
+			this.addEventListener(Event.ENTER_FRAME, playButtonCheck);
 			
 			addChild(mainMenuBg);
 			addChild(playButton);
+		}
+	
+		private function playButtonCheck(e:Event):void
+		{
+			screenKEY = PlayButton.changeScreenKEY;
+			
 		}
 	}
 }

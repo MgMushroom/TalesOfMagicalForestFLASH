@@ -8,6 +8,7 @@ package com.ms.tomf.Objects.MenuItems
 
 	public class PlayButton extends MovieClip
 	{	
+		public static var changeScreenKEY:String = "NULL";
 		
 		public function PlayButton()
 		{
@@ -17,8 +18,8 @@ package com.ms.tomf.Objects.MenuItems
 		}
 		private function mouseClicked(E:Event)
 		{
-			//screenKEY = "GAME"
-			trace("lol")
+			changeScreenKEY = "GAME"
+			trace(MainMenu.screenKEY)
 		}
 			
 	}

@@ -17,7 +17,6 @@
 			this.mainMenu = new MainMenu;	
 			this.inGame = new InGame;	
 			
-			this.addChild(inGame);
 			this.addChild(mainMenu);
 			
 			this.addEventListener(Event.ENTER_FRAME, changeScreen);						
@@ -25,23 +24,15 @@
 		
 		private function changeScreen(e:Event)
 		{		
-		
-		if(com.ms.tomf.Screens.Menus.MainMenu.screenKEY == "MAIN")
-		{
-			this.removeChild(inGame);
-			this.addChild(mainMenu);
-			
-			
-			this.removeEventListener(Event.ENTER_FRAME, changeScreen);	
-		}
-		
+			//trace(screenKEY);
+	
 		if(com.ms.tomf.Screens.Menus.MainMenu.screenKEY == "GAME")
 		{
 			
 			this.removeChild(mainMenu);
 			this.addChild(inGame);
 		
-			this.removeEventListener(Event.ENTER_FRAME, changeScreen);	
+			this.removeEventListener(Event.ENTER_FRAME, changeScreen);
 		}
 			
 		
