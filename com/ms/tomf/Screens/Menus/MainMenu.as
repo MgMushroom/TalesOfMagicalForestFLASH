@@ -7,7 +7,7 @@ package com.ms.tomf.Screens.Menus
 	{
 		private var minion:Sprite = new Sprite;
 		
-		//public static var lol:String;
+		public static var screenKEY:String = "MAIN";
 		
 		public function MainMenu()
 		{
