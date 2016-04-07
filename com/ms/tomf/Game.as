@@ -24,7 +24,7 @@
 		
 		private function changeScreen(e:Event)
 		{		
-			//trace(screenKEY);
+			
 	
 		if(com.ms.tomf.Screens.Menus.MainMenu.screenKEY == "GAME")
 		{
