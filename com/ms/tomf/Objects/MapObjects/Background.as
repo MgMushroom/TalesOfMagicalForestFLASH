@@ -6,7 +6,7 @@ package com.ms.tomf.Objects.MapObjects
 	{
 		public function Background()
 		{
-			this.y = -1400; 
+			//this.y = -1400; 
 		}
 	}
 }

@@ -6,8 +6,8 @@ package com.ms.tomf.Objects.MapObjects
 	{
 		public function Ground()
 		{
-			this.x = -500;
-			this.y = -830;
+			this.x = 0;
+			this.y = 0;
 	
 		}
 	}

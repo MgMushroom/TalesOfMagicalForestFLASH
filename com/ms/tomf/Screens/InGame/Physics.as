@@ -6,6 +6,7 @@ package com.ms.tomf.Screens.InGame
 	import com.ms.tomf.Objects.Map;
 	import com.ms.tomf.Screens.InGame.InGame;
 	import com.ms.tomf.Objects.Player;
+	import com.ms.tomf.Objects.MapObjects.Movement.Ladders;
 	
 	public class Physics extends MovieClip
 	{
@@ -26,7 +27,7 @@ package com.ms.tomf.Screens.InGame
 		private function gravityData():void
 		{
 			gravity.gravityConst = 1.5;
-			gravity.jumpConst = -60;
+			gravity.jumpConst = -50;
 		}
 	
 		private function movementData():void
@@ -87,7 +88,8 @@ package com.ms.tomf.Screens.InGame
 			if(Player.bumpPoints.down)
 			{if(Physics.movement.speedY > 0){Physics.movement.speedY *= -0.5;}
 			
-			if(Controls.keyboard.w){Physics.movement.speedY = Physics.gravity.jumpConst;}}
+			if(Controls.keyboard.w && Player.attributes.stamina > 0)
+			{Physics.movement.speedY = Physics.gravity.jumpConst;}}
 			else{Physics.movement.speedY += gravity.gravityConst;}
 			
 			if(Player.bumpPoints.left)

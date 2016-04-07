@@ -3,6 +3,8 @@ package com.ms.tomf.Objects
 	import com.ms.tomf.Objects.Player;
 	import com.ms.tomf.Objects.MapObjects.Background;
 	import com.ms.tomf.Objects.MapObjects.Ground;
+	import com.ms.tomf.Objects.MapObjects.Traps.Traps;
+	import com.ms.tomf.Objects.MapObjects.Movement.Movement;
 	import com.ms.tomf.Screens.InGame.InGame;
 	import com.ms.tomf.Screens.InGame.Physics;
 	
@@ -17,6 +19,7 @@ package com.ms.tomf.Objects
 		
 			public function Map()
 		{
+			
 			defineMapContent();
 			addMapContent();
 			
@@ -31,18 +34,25 @@ package com.ms.tomf.Objects
 			Physics.movement.scrollY -= Physics.movement.speedY;
 			InGame.inGameContent.map.x = Physics.movement.scrollX;
 			InGame.inGameContent.map.y = Physics.movement.scrollY;
+		
+			if(y < -1000)
+			{Player.attributes.health -= 100;}
 		}
 		
 		private function defineMapContent():void
 		{
 			mapContent.ground = new Ground;
 			mapContent.background = new Background;
+			mapContent.traps = new Traps;
+			mapContent.movement = new Movement;
 		}
 	
 		private function addMapContent():void
 		{
 			this.addChild(mapContent.background);
 			this.addChild(mapContent.ground);
+			this.addChild(mapContent.movement);
+			this.addChild(mapContent.traps);
 		}
 	}
 }
