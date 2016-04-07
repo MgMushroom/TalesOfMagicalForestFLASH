@@ -6,8 +6,7 @@ package com.ms.tomf.Screens.Menus
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	
-	
+
 	public class MainMenu extends MovieClip
 	{
 		private var minion:Sprite = new Sprite;

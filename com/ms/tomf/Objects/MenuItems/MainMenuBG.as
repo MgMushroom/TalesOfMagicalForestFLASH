@@ -1,4 +1,4 @@
-package com.ms.tomf.Objects.MenuItems
+﻿package com.ms.tomf.Objects.MenuItems
 {
 	import flash.display.MovieClip;
 	
@@ -6,7 +6,11 @@ package com.ms.tomf.Objects.MenuItems
 	{
 		public function MainMenuBG()
 		{
+
 			super();
+
+			
+
 		}
 	}
 }

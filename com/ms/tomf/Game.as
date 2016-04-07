@@ -16,7 +16,10 @@
 		{		
 			this.mainMenu = new MainMenu;	
 			
+
 			
+
+
 			this.addChild(mainMenu);
 			
 			this.addEventListener(Event.ENTER_FRAME, changeScreen);						
@@ -24,7 +27,10 @@
 		
 		private function changeScreen(e:Event)
 		{		
-			
+
+
+			//trace(screenKEY);
+
 	
 		if(com.ms.tomf.Screens.Menus.MainMenu.screenKEY == "GAME")
 		{
