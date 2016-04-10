@@ -1,8 +1,9 @@
 package com.ms.tomf.Objects
 {
 	import com.ms.tomf.Objects.Map;
-	import com.ms.tomf.Screens.InGame.Physics;
+	import com.ms.tomf.Screens.InGame.Controls;
 	import com.ms.tomf.Screens.InGame.InGame;
+	import com.ms.tomf.Screens.InGame.Physics;
 	import com.ms.tomf.Screens.Menus.MainMenu;
 	
 	import flash.display.MovieClip;
@@ -24,13 +25,14 @@ package com.ms.tomf.Objects
 		public static var rightPoint:Point;
 		public static var upPoint:Point;
 		public static var downPoint:Point;
+		private var switchSide:Boolean=false;
 		
 		public function Player()
 		{
 			trace("PLAYER ACTIVE");
 			
-			this.x = 1200 / 2;
-			this.y = 400;
+			this.x = 600 - this.width *0.5;
+			this.y = 400 - this.height*0.5;
 			setAttributes();
 			setPoints();
 		}
@@ -54,16 +56,29 @@ package com.ms.tomf.Objects
 			attributes.stamina = 100;
 			
 			this.addEventListener(Event.ENTER_FRAME, checkAttributes)
+			this.addEventListener(Event.ENTER_FRAME, checkAnimation)
+		
 		}
 		
 		private function checkAttributes(e:Event):void
 		{	
 			if(attributes.health <= 0)
-			{state.dead = true;
-			attributes.health = 100;}
+			{state.dead = true;}
 			
 			if(attributes.stamina < 100)
 			{attributes.stamina += 0.15;}
+		}
+	
+		private function checkAnimation(e:Event):void
+		{	
+			if(Controls.keyboard.a == false && Controls.keyboard.d == false)
+			{
+				gotoAndPlay("standingR");
+			}
+			if(Player.bumpPoints.down == false && Physics.movement.speedY < 0)
+			{
+				gotoAndPlay("jumpingR");
+			}
 		}
 	}
 }

@@ -1,9 +1,12 @@
 package com.ms.tomf.Screens.InGame
 {
+	import com.ms.tomf.Objects.Player;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
 	
 	public class Controls extends MovieClip
 	{
@@ -14,16 +17,14 @@ package com.ms.tomf.Screens.InGame
 		{
 			trace("ADDED CONTROLS");
 			
-			mouseData();
 			keyData();
 			
 			this.addEventListener(Event.ENTER_FRAME, checkKeys);
 		}
-	
+		
 		private function mouseData():void
 		{
-			mouse.dirX = 0;
-			mouse.dirY = 0;
+		
 		}
 		
 		private function keyData():void
@@ -36,10 +37,28 @@ package com.ms.tomf.Screens.InGame
 	
 		private function checkKeys(e:Event):void
 		{
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);
-			stage.addEventListener(KeyboardEvent.KEY_UP, checkKeyUp);
+			if(Player.state.dead == true)
+			{stage.removeEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);}
+			else{stage.addEventListener(KeyboardEvent.KEY_DOWN, checkKeyDown);}
+			
+			if(Player.state.dead == true)
+			{stage.removeEventListener(KeyboardEvent.KEY_DOWN, checkKeyUp);}
+			else{stage.addEventListener(KeyboardEvent.KEY_UP, checkKeyUp);}
+		
+			if(Player.state.dead == true)
+			{stage.removeEventListener(MouseEvent.MOUSE_MOVE, checkDirection);}
+			else{stage.addEventListener(MouseEvent.MOUSE_MOVE, checkDirection);}
+			
 		}
-	
+		private function checkDirection(e:MouseEvent):void
+		{
+			
+			mouse.x = mouse.dirX;
+			mouse.y = mouse.dirY;
+			
+			mouse.dirX = stage.mouseX;
+			mouse.dirY = stage.mouseY;
+		}
 		private function checkKeyDown(e:KeyboardEvent):void
 		{
 			if(e.keyCode == 87){keyboard.w = true;}
