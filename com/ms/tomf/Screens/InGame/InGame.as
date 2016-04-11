@@ -2,7 +2,7 @@ package com.ms.tomf.Screens.InGame
 {
 	import com.ms.tomf.Objects.Map;
 	import com.ms.tomf.Objects.Player;
-	
+	import com.ms.tomf.Screens.Menus.InGameMenu;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -27,7 +27,7 @@ package com.ms.tomf.Screens.InGame
 			inGameContent.map = new Map;
 			inGameContent.player = new Player;
 			inGameContent.ui = new UserInt;
-			
+			inGameContent.inGameMenu = new InGameMenu;
 		}
 		
 		private function addInGameContent():void
@@ -37,7 +37,7 @@ package com.ms.tomf.Screens.InGame
 			this.addChild(inGameContent.map);
 			this.addChild(inGameContent.player);
 			this.addChild(inGameContent.ui);
-			
+			this.addChild(inGameContent.inGameMenu);
 		}
 	}
 }

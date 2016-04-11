@@ -1,23 +1,22 @@
 ﻿package com.ms.tomf
 {
 	import com.ms.tomf.Objects.Player;
-	import com.ms.tomf.Screens.InGame.InGame;
-	import com.ms.tomf.Screens.Menus.MainMenu;
 	import com.ms.tomf.Objects.MenuItems.PlayButton;
 	import com.ms.tomf.Screens.InGame.Controls;
+	import com.ms.tomf.Screens.InGame.InGame;
+	import com.ms.tomf.Screens.Menus.MainMenu;
 	import com.ms.tomf.System.SaveSpots.Start;
 	
 	import flash.display.MovieClip;
-	import flash.events.Event;
-	import flash.system.*;
 	import flash.display.Stage;
+	import flash.events.Event;
 	
 	public class Game extends MovieClip
 	{
 		private var mainMenu:MainMenu;
 		private var inGame:InGame;
 		private var start:Start;
-		
+		public static var state:Object = new Object;
 		public function Game()
 		{		
 			this.mainMenu = new MainMenu;	
@@ -61,9 +60,10 @@
 		{		
 			
 			
-			if(Player.state.dead == true)
+			if(Player.state.dead == true || Game.state.mainmenu == true)
 			{
 				PlayButton.changeScreenKEY = "NULL";
+				Game.state.mainmenu = false;
 				
 				start.startUp();
 				

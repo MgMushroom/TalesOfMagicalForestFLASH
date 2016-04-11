@@ -29,6 +29,7 @@ package com.ms.tomf.Screens.InGame
 		
 		private function keyData():void
 		{
+			keyboard.esc = false;
 			keyboard.w = false;
 			keyboard.a = false;
 			keyboard.d = false;
@@ -61,6 +62,7 @@ package com.ms.tomf.Screens.InGame
 		}
 		private function checkKeyDown(e:KeyboardEvent):void
 		{
+			if(e.keyCode == 27){keyboard.esc = true;}
 			if(e.keyCode == 87){keyboard.w = true;}
 			if(e.keyCode == 65){keyboard.a = true;}
 			if(e.keyCode == 68){keyboard.d = true;}
@@ -69,6 +71,7 @@ package com.ms.tomf.Screens.InGame
 		
 		private function checkKeyUp(e:KeyboardEvent):void
 		{
+			if(e.keyCode == 27){keyboard.esc = false;}
 			if(e.keyCode == 87){keyboard.w = false;}
 			if(e.keyCode == 65){keyboard.a = false;}
 			if(e.keyCode == 68){keyboard.d = false;}
