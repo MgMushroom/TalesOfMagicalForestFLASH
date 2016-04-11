@@ -20,15 +20,29 @@ package com.ms.tomf.Objects.MapObjects.Enemies
 		}
 		private function collision(E:Event)//Collision and checking if worm is close enough of player
 		{
+<<<<<<< HEAD
 			
 			
 			if(this.hitTestObject(InGame.inGameContent.player))
 			{Player.attributes.health -= 100;}
 			
 			if (InGame.inGameContent.player.x -InGame.inGameContent.map.x >= (this.x - 600) )	
+=======
+			trace((InGame.inGameContent.player.x - InGame.inGameContent.map.x)/*- (this.x - 600)*/+ "\n" +
+				(this.x));
+	
+			if(this.hitTestObject(InGame.inGameContent.player))
+			{Player.attributes.health -= 0;}
+			if ((InGame.inGameContent.player.x - InGame.inGameContent.map.x >= this.x - 600 && (InGame.inGameContent.player.x - InGame.inGameContent.map.x <= this.x - 200)))
+>>>>>>> origin/master
 			{
-				this.x -= 2;
+				this.x -= 8;
+				
 			}
+			if ((InGame.inGameContent.player.x - InGame.inGameContent.map.x >= this.x - 600 && (InGame.inGameContent.player.x - InGame.inGameContent.map.x <= this.x + 300)))
+			{
+				this.x += 4;
+			}		
 		}
 	}
 }
