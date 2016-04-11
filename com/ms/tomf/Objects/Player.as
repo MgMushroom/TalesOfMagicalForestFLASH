@@ -68,16 +68,38 @@ package com.ms.tomf.Objects
 			if(attributes.stamina < 100)
 			{attributes.stamina += 0.15;}
 		}
-	
+		
 		private function checkAnimation(e:Event):void
 		{	
-			if(Controls.keyboard.a == false && Controls.keyboard.d == false)
+			if(Controls.keyboard.a == false && Controls.keyboard.d == false && this.x < Controls.mouse.x)
 			{
 				gotoAndPlay("standingR");
 			}
-			if(Player.bumpPoints.down == false && Physics.movement.speedY < 0)
+			if(Controls.keyboard.a == false && Controls.keyboard.d == false && this.x > Controls.mouse.x)
+			{
+				gotoAndPlay("standingL");
+			}
+			
+			if(Player.bumpPoints.down == false && Physics.movement.speedY < 0 && this.x < Controls.mouse.x)
 			{
 				gotoAndPlay("jumpingR");
+			}
+			
+			if(Player.bumpPoints.down == false  && Physics.movement.speedY < 0 && this.x > Controls.mouse.x)
+			{
+				gotoAndPlay("jumpingL");
+			}
+		
+			if(Controls.keyboard.a == true && this.x < Controls.mouse.x||
+				Controls.keyboard.d == true && this.x < Controls.mouse.x)
+			{
+				gotoAndPlay("runningR");
+			}
+			
+			if(Controls.keyboard.a == true && this.x > Controls.mouse.x||
+				Controls.keyboard.d == true && this.x > Controls.mouse.x)
+			{
+				gotoAndPlay("runningL");
 			}
 		}
 	}

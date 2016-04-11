@@ -11,11 +11,11 @@ package com.ms.tomf.Objects.MenuItems
 	{
 		public function ExitButton()
 		{
-			this.x = 600;
-			this.y = 600;
-			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseClickedE)
+			this.x = 590;
+			this.y = 625;
+			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseClicked)
 		}
-		private function mouseClickedE(E:Event):void
+		private function mouseClicked(E:Event):void
 		{ 
 			fscommand("quit");
 		}

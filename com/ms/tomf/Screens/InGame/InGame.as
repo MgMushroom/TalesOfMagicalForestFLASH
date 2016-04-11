@@ -2,7 +2,9 @@ package com.ms.tomf.Screens.InGame
 {
 	import com.ms.tomf.Objects.Map;
 	import com.ms.tomf.Objects.Player;
+	import com.ms.tomf.Objects.MenuItems.PlayButton;
 	import com.ms.tomf.Screens.Menus.InGameMenu;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -16,6 +18,10 @@ package com.ms.tomf.Screens.InGame
 		public function InGame()
 		{
 			trace("INGAME ACTIVED");
+			
+			if(PlayButton.changeScreenKEY == "GAME")
+			{}
+			
 			defineInGameContent();
 			addInGameContent();
 		}
