@@ -1,6 +1,7 @@
 package com.ms.tomf.Objects
 {
 	import com.ms.tomf.Objects.Map;
+	import com.ms.tomf.Objects.Weapons.RangeSpear;
 	import com.ms.tomf.Screens.InGame.Controls;
 	import com.ms.tomf.Screens.InGame.InGame;
 	import com.ms.tomf.Screens.InGame.Physics;
@@ -25,7 +26,9 @@ package com.ms.tomf.Objects
 		public static var rightPoint:Point;
 		public static var upPoint:Point;
 		public static var downPoint:Point;
-		private var switchSide:Boolean=false;
+		public static var playerY;
+		public static var playerX;
+	
 		
 		public function Player()
 		{
@@ -71,7 +74,14 @@ package com.ms.tomf.Objects
 		
 		private function checkAnimation(e:Event):void
 		{	
+
 			if(Controls.keyboard.a == false && Controls.keyboard.d == false && this.x < Controls.mouse.x)
+
+			playerY = this.y;
+			playerX = this.x;
+			
+			if(Controls.keyboard.a == false && Controls.keyboard.d == false)
+
 			{
 				gotoAndPlay("standingR");
 			}
