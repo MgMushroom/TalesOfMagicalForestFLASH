@@ -25,6 +25,8 @@ package com.ms.tomf.Objects
 		public static var rightPoint:Point;
 		public static var upPoint:Point;
 		public static var downPoint:Point;
+		public static var playerY;
+		public static var playerX;
 		private var switchSide:Boolean=false;
 		
 		public function Player()
@@ -71,6 +73,9 @@ package com.ms.tomf.Objects
 	
 		private function checkAnimation(e:Event):void
 		{	
+			playerY = this.y;
+			playerX = this.x;
+			
 			if(Controls.keyboard.a == false && Controls.keyboard.d == false)
 			{
 				gotoAndPlay("standingR");

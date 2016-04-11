@@ -4,6 +4,7 @@ package com.ms.tomf.Screens.InGame
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.text.TextField;
+	import com.ms.tomf.Objects.MapObjects.Enemies.Worm
 	
 	import com.ms.tomf.Objects.Player;
 	

@@ -3,8 +3,9 @@ package com.ms.tomf.Objects
 	import com.ms.tomf.Objects.Player;
 	import com.ms.tomf.Objects.MapObjects.Background;
 	import com.ms.tomf.Objects.MapObjects.Ground;
-	import com.ms.tomf.Objects.MapObjects.Traps.Traps;
+	import com.ms.tomf.Objects.MapObjects.Enemies.Worm;
 	import com.ms.tomf.Objects.MapObjects.Movement.Movement;
+	import com.ms.tomf.Objects.MapObjects.Traps.Traps;
 	import com.ms.tomf.Screens.InGame.InGame;
 	import com.ms.tomf.Screens.InGame.Physics;
 	
@@ -45,6 +46,7 @@ package com.ms.tomf.Objects
 			mapContent.background = new Background;
 			mapContent.traps = new Traps;
 			mapContent.movement = new Movement;
+			mapContent.worm = new Worm;
 		}
 	
 		private function addMapContent():void
@@ -53,6 +55,8 @@ package com.ms.tomf.Objects
 			this.addChild(mapContent.ground);
 			this.addChild(mapContent.movement);
 			this.addChild(mapContent.traps);
+			this.addChild(mapContent.worm);
+
 		}
 	}
 }
