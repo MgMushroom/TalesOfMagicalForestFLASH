@@ -1,18 +1,19 @@
 package com.ms.tomf.Screens.InGame
 {
+	import com.ms.tomf.Objects.Map;
+	import com.ms.tomf.Objects.Player;
+	import com.ms.tomf.Objects.MapObjects.Enemies.Worm;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.text.TextField;
-	import com.ms.tomf.Objects.MapObjects.Enemies.Worm
-	
-	import com.ms.tomf.Objects.Player;
 	
 	public class UserInt extends MovieClip
 	{
 		private var bars:Object = new Object;
 		private var textF:TextField = new TextField;
-		
+		private var one:Number;
 		public function UserInt()
 		{
 			addBars();
@@ -51,8 +52,8 @@ package com.ms.tomf.Screens.InGame
 		public function showPlayerParams(e:Event):void
 		{
 			textF.text = "mouseX: " + String(Controls.mouse.x)+ "\n" 
-				+ "mouseY: " + String(Controls.mouse.y);
-			
+				+ "mouseY: " + String(Controls.mouse.y) + "\n" + "One " + one;
+			one = (InGame.inGameContent.player.x - InGame.inGameContent.map.x -(Map.mapContent.x));
 			bars.health.width = Player.attributes.health * 2;
 			bars.stamina.width = Player.attributes.stamina * 2;
 		}
