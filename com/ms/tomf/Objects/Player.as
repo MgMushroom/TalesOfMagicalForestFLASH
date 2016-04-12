@@ -1,7 +1,7 @@
 package com.ms.tomf.Objects
 {
 	import com.ms.tomf.Objects.Map;
-	import com.ms.tomf.Objects.Weapons.RangeSpear;
+	import com.ms.tomf.Objects.ABS.Projectiles.RangeSpear;
 	import com.ms.tomf.Screens.InGame.Controls;
 	import com.ms.tomf.Screens.InGame.InGame;
 	import com.ms.tomf.Screens.InGame.Physics;
@@ -58,13 +58,18 @@ package com.ms.tomf.Objects
 			attributes.health = 100;
 			attributes.stamina = 100;
 			
-			this.addEventListener(Event.ENTER_FRAME, checkAttributes)
+			this.addEventListener(Event.ENTER_FRAME, checkPlayer)
 			this.addEventListener(Event.ENTER_FRAME, checkAnimation)
 		
 		}
 		
-		private function checkAttributes(e:Event):void
+		private function checkPlayer(e:Event):void
 		{	
+			if(this.x < Controls.mouse.x)
+			{state.dir = "right";}
+			else if (this.x > Controls.mouse.x)
+			{state.dir = "left";}
+				
 			if(attributes.health <= 0)
 			{state.dead = true;}
 			
